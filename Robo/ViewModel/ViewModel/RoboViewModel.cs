@@ -5,7 +5,7 @@ namespace ViewModel
     /// <summary>
     /// R.o.b.o.
     /// </summary>
-    public class RoboViewModel
+    public class RoboViewModel : IRoboViewModel
     {
         /// <summary>
         /// R.o.b.o.

@@ -1,4 +1,6 @@
-﻿namespace Domain
+﻿using Domain.Resources;
+
+namespace Domain
 {
     public class Cabeca
     {

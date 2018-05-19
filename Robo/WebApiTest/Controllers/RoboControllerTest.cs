@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ViewModel;
 using WebApi.Controllers;
@@ -40,7 +41,7 @@ namespace WebApiTest.Controllers
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 
-            RoboViewModel robo = (result as OkObjectResult)?.Value as RoboViewModel;
+            IRoboViewModel robo = (result as OkObjectResult)?.Value as IRoboViewModel;
 
             Assert.IsInstanceOfType(robo, typeof(RoboViewModel));
 
@@ -68,7 +69,7 @@ namespace WebApiTest.Controllers
 
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 
-            RoboViewModel robo = (result as OkObjectResult)?.Value as RoboViewModel;
+            IRoboViewModel robo = (result as OkObjectResult)?.Value as IRoboViewModel;
 
             Assert.IsInstanceOfType(robo, typeof(RoboViewModel));
 
@@ -84,10 +85,16 @@ namespace WebApiTest.Controllers
             Assert.IsNotNull(_controller);
 
             var robo = new RoboViewModel();
+            robo.BracoDireito.Cotovelo = EnumCotovelo.LevementeContraido;
 
             var result = _controller.Put(robo);
-
             Assert.IsNotNull(result);
+
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            IRoboViewModel roboAtualizado = (result as OkObjectResult)?.Value as IRoboViewModel;
+
+            Assert.AreEqual(EnumCotovelo.LevementeContraido, roboAtualizado.BracoDireito.Cotovelo);
         }
     }
 }

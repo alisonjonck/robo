@@ -36,8 +36,11 @@ namespace WebApiTest
         public void TestRobosElbowStartsWithEmRepouso()
         {
             Assert.IsNotNull(_robo.BracoDireito.Cotovelo);
+            Assert.IsNotNull(_robo.BracoEsquerdo.Cotovelo);
             Assert.AreEqual(EnumCotovelo.EmRepouso, _robo.BracoDireito.Cotovelo);
+            Assert.AreEqual(EnumCotovelo.EmRepouso, _robo.BracoEsquerdo.Cotovelo);
             Assert.AreEqual("Em Repouso", _robo.BracoDireito.CotoveloDescricao);
+            Assert.AreEqual("Em Repouso", _robo.BracoEsquerdo.CotoveloDescricao);
         }
 
         [TestMethod]
@@ -53,5 +56,13 @@ namespace WebApiTest
             Assert.AreEqual(EnumCotovelo.Contraido.Description(), "Contraído");
             Assert.AreEqual(EnumCotovelo.FortementeContraido.Description(), "Fortemente Contraído");
         }
+
+        //[TestMethod]
+        //public void TestRobosWristStartsWithEmRepouso()
+        //{
+        //    Assert.IsNotNull(_robo.BracoDireito.Pulso);
+        //    Assert.AreEqual(EnumPulso.EmRepouso, _robo.BracoDireito.Pulso);
+        //    Assert.AreEqual("Em Repouso", _robo.BracoDireito.PulsoDescricao);
+        //}
     }
 }

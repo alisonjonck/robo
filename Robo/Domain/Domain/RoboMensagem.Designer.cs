@@ -61,6 +61,16 @@ namespace Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ao realizar a progressão de estados, é necessário que sempre siga a ordem
+        ///crescente ou decrescente,.
+        /// </summary>
+        internal static string NecessarioProgressaoCrescenteOuDecrescente {
+            get {
+                return ResourceManager.GetString("NecessarioProgressaoCrescenteOuDecrescente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Só poderá movimentar o Pulso caso o Cotovelo esteja Fortemente Contraído.
         /// </summary>
         internal static string SoPoderaMovimentarPulsoComCotoveloFortementeContraido {

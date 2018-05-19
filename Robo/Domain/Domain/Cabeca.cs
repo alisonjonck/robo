@@ -15,6 +15,9 @@
                 if (Inclinacao == EnumInclinacao.ParaBaixo)
                     throw new RoboException(RoboMensagem.SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo);
 
+                if (!((int)_rotacao + 1 == (int)value || (int)_rotacao - 1 == (int)value))
+                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+
                 _rotacao = value;
             }
         }
@@ -24,7 +27,19 @@
             get { return Rotacao.Description(); }
         }
 
-        public EnumInclinacao Inclinacao { get; set; } = EnumInclinacao.EmRepouso;
+        private EnumInclinacao _inclinacao = EnumInclinacao.EmRepouso;
+        public EnumInclinacao Inclinacao
+        {
+            get { return _inclinacao; }
+            set
+            {
+                if (!((int)_inclinacao + 1 == (int)value || (int)_inclinacao - 1 == (int)value))
+                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+
+                _inclinacao = value;
+            }
+        }
+
 
         public string InclinacaoDescricao
         {

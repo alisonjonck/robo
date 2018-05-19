@@ -91,7 +91,12 @@ namespace WebApiTest
         [TestMethod]
         public void TestRoboHasHeadWithRotationAndInclination()
         {
+            Assert.IsNotNull(_robo);
 
+            Assert.IsNotNull(_robo.Cabeca);
+
+            Assert.IsNotNull(_robo.Cabeca.Rotacao);
+            Assert.IsNotNull(_robo.Cabeca.Inclinacao);
         }
     }
 }

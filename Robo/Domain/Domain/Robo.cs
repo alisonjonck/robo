@@ -8,10 +8,13 @@ namespace Domain
         {
             BracoDireito = new Braco();
             BracoEsquerdo = new Braco();
+            Cabeca = new Cabeca();
         }
 
         public Braco BracoDireito { get; set; }
 
         public Braco BracoEsquerdo { get; set; }
+
+        public Cabeca Cabeca { get; set; }
     }
 }

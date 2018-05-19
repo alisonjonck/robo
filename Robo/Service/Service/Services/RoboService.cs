@@ -19,8 +19,14 @@ namespace Service
         public Robo UpdateRobo(Robo robo)
         {
             _robo.BracoDireito.Cotovelo = robo.BracoDireito.Cotovelo;
+            _robo.BracoDireito.Pulso = robo.BracoDireito.Pulso;
+            _robo.BracoEsquerdo.Cotovelo = robo.BracoEsquerdo.Cotovelo;
+            _robo.BracoEsquerdo.Pulso = robo.BracoEsquerdo.Pulso;
 
-            return _robo;
+            _robo.Cabeca.Inclinacao = robo.Cabeca.Inclinacao;
+            _robo.Cabeca.Rotacao = robo.Cabeca.Rotacao;
+
+            return GetRobo();
         }
     }
 }

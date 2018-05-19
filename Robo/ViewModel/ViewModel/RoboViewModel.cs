@@ -1,4 +1,6 @@
-﻿namespace ViewModel
+﻿using Domain;
+
+namespace ViewModel
 {
     /// <summary>
     /// R.o.b.o.
@@ -10,12 +12,15 @@
         /// </summary>
         public RoboViewModel()
         {
-            BracoDireito = "";
-            BracoEsquerdo = "";
+            Cabeca = new Cabeca();
+            BracoDireito = new Braco();
+            BracoEsquerdo = new Braco();
         }
 
-        public string BracoDireito { get; set; }
+        public Braco BracoDireito { get; set; }
 
-        public string BracoEsquerdo { get; set; }
+        public Braco BracoEsquerdo { get; set; }
+
+        public Cabeca Cabeca { get; set; }
     }
 }

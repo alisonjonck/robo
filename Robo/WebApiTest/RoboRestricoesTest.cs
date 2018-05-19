@@ -83,7 +83,7 @@ namespace WebApiTest
         // ###############################################################################
 
         [TestMethod]
-        public void TestProgressaoDeEstadosInclinacaoCrescenteDecrescente()
+        public void TestProgressaoDeEstadosInclinacaoCabecaCrescenteDecrescente()
         {
             // 2
             Assert.AreEqual(EnumInclinacao.EmRepouso, _robo.Cabeca.Inclinacao);
@@ -116,7 +116,7 @@ namespace WebApiTest
         }
 
         [TestMethod]
-        public void TestProgressaoDeEstadosRotacaoCrescenteDecrescente()
+        public void TestProgressaoDeEstadosRotacaoCabecaCrescenteDecrescente()
         {
             // 3
             Assert.AreEqual(EnumRotacao.EmRepouso, _robo.Cabeca.Rotacao);

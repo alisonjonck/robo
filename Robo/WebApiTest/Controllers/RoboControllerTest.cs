@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ViewModel;
 using WebApi.Controllers;
 
@@ -16,12 +17,16 @@ namespace WebApiTest.Controllers
         }
 
         [TestMethod]
-        public void TestRoboControllerReturnsRobo()
+        public void TestRoboControllerGetReturnsRobo()
         {
             Assert.IsNotNull(_controller);
 
-            var robo = _controller.Get();
-            Assert.IsNotNull(robo);
+            var result = _controller.Get();
+            Assert.IsNotNull(result);
+
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            var robo = (result as OkObjectResult)?.Value;
 
             Assert.IsInstanceOfType(robo, typeof(RoboViewModel));
         }
@@ -31,8 +36,11 @@ namespace WebApiTest.Controllers
         {
             Assert.IsNotNull(_controller);
 
-            var robo = _controller.Get();
-            Assert.IsNotNull(robo);
+            var result = _controller.Get();
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            RoboViewModel robo = (result as OkObjectResult)?.Value as RoboViewModel;
 
             Assert.IsInstanceOfType(robo, typeof(RoboViewModel));
 
@@ -55,8 +63,12 @@ namespace WebApiTest.Controllers
         {
             Assert.IsNotNull(_controller);
 
-            var robo = _controller.Get();
-            Assert.IsNotNull(robo);
+            var result = _controller.Get();
+            Assert.IsNotNull(result);
+
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            RoboViewModel robo = (result as OkObjectResult)?.Value as RoboViewModel;
 
             Assert.IsInstanceOfType(robo, typeof(RoboViewModel));
 
@@ -64,6 +76,18 @@ namespace WebApiTest.Controllers
 
             Assert.IsNotNull(robo.Cabeca.Rotacao);
             Assert.IsNotNull(robo.Cabeca.Inclinacao);
+        }
+
+        [TestMethod]
+        public void TestRoboControllerPutUpdatesRobo()
+        {
+            Assert.IsNotNull(_controller);
+
+            var robo = new RoboViewModel();
+
+            var result = _controller.Put(robo);
+
+            Assert.IsNotNull(result);
         }
     }
 }

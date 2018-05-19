@@ -2,8 +2,24 @@
 {
     public class Cabeca
     {
-        public int Rotacao { get; set; }
+        public Cabeca()
+        {
+            Rotacao = EnumRotacao.EmRepouso;
+            Inclinacao = EnumInclinacao.EmRepouso;
+        }
 
-        public int Inclinacao { get; set; }
+        public EnumRotacao Rotacao { get; set; }
+
+        public string RotacaoDescricao
+        {
+            get { return Rotacao.Description(); }
+        }
+
+        public EnumInclinacao Inclinacao { get; set; }
+
+        public string InclinacaoDescricao
+        {
+            get { return Inclinacao.Description(); }
+        }
     }
 }

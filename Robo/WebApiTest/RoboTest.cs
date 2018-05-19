@@ -98,5 +98,49 @@ namespace WebApiTest
             Assert.IsNotNull(_robo.Cabeca.Rotacao);
             Assert.IsNotNull(_robo.Cabeca.Inclinacao);
         }
+
+        [TestMethod]
+        public void TestRobosRotationStartsWithEmRepouso()
+        {
+            Assert.IsNotNull(_robo.Cabeca.Rotacao);
+            Assert.AreEqual(EnumRotacao.EmRepouso, _robo.Cabeca.Rotacao);
+            Assert.AreEqual("Em Repouso", _robo.Cabeca.RotacaoDescricao);
+        }
+
+        [TestMethod]
+        public void TestRobosRotationHasValidOptions()
+        {
+            Assert.AreEqual((int)EnumRotacao.RotacaoMenos90, 1);
+            Assert.AreEqual((int)EnumRotacao.RotacaoMenos45, 2);
+            Assert.AreEqual((int)EnumRotacao.EmRepouso, 3);
+            Assert.AreEqual((int)EnumRotacao.Rotacao45, 4);
+            Assert.AreEqual((int)EnumRotacao.Rotacao90, 5);
+
+            Assert.AreEqual(EnumRotacao.RotacaoMenos90.Description(), "Rotação -90º");
+            Assert.AreEqual(EnumRotacao.RotacaoMenos45.Description(), "Rotação -45º");
+            Assert.AreEqual(EnumRotacao.EmRepouso.Description(), "Em Repouso");
+            Assert.AreEqual(EnumRotacao.Rotacao45.Description(), "Rotação 45º");
+            Assert.AreEqual(EnumRotacao.Rotacao90.Description(), "Rotação 90º");
+        }
+
+        [TestMethod]
+        public void TestRobosInclinationStartsWithEmRepouso()
+        {
+            Assert.IsNotNull(_robo.Cabeca.Inclinacao);
+            Assert.AreEqual(EnumInclinacao.EmRepouso, _robo.Cabeca.Inclinacao);
+            Assert.AreEqual("Em Repouso", _robo.Cabeca.InclinacaoDescricao);
+        }
+
+        [TestMethod]
+        public void TestRobosInclinationHasValidOptions()
+        {
+            Assert.AreEqual((int)EnumInclinacao.EmRepouso, 2);
+            Assert.AreEqual((int)EnumInclinacao.ParaBaixo, 3);
+            Assert.AreEqual((int)EnumInclinacao.ParaCima, 1);
+
+            Assert.AreEqual(EnumInclinacao.EmRepouso.Description(), "Em Repouso");
+            Assert.AreEqual(EnumInclinacao.ParaBaixo.Description(), "Para Baixo");
+            Assert.AreEqual(EnumInclinacao.ParaCima.Description(), "Para Cima");
+        }
     }
 }

@@ -38,6 +38,8 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosElbowStartsWithEmRepouso()
         {
+            // O estado inicial dos movimentos é Em Repouso.
+
             Assert.IsNotNull(_robo.BracoDireito.Cotovelo);
             Assert.IsNotNull(_robo.BracoEsquerdo.Cotovelo);
             Assert.AreEqual(EnumCotovelo.EmRepouso, _robo.BracoDireito.Cotovelo);
@@ -63,6 +65,8 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosWristStartsWithEmRepouso()
         {
+            // O estado inicial dos movimentos é Em Repouso.
+
             Assert.IsNotNull(_robo.BracoDireito.Pulso);
             Assert.AreEqual(EnumPulso.EmRepouso, _robo.BracoDireito.Pulso);
             Assert.AreEqual("Em Repouso", _robo.BracoDireito.PulsoDescricao);
@@ -102,6 +106,8 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosRotationStartsWithEmRepouso()
         {
+            // O estado inicial dos movimentos é Em Repouso.
+
             Assert.IsNotNull(_robo.Cabeca.Rotacao);
             Assert.AreEqual(EnumRotacao.EmRepouso, _robo.Cabeca.Rotacao);
             Assert.AreEqual("Em Repouso", _robo.Cabeca.RotacaoDescricao);
@@ -126,6 +132,8 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosInclinationStartsWithEmRepouso()
         {
+            // O estado inicial dos movimentos é Em Repouso.
+
             Assert.IsNotNull(_robo.Cabeca.Inclinacao);
             Assert.AreEqual(EnumInclinacao.EmRepouso, _robo.Cabeca.Inclinacao);
             Assert.AreEqual("Em Repouso", _robo.Cabeca.InclinacaoDescricao);

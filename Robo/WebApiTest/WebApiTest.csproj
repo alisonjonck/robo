@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain\Domain.csproj" />
+    <ProjectReference Include="..\ViewModel\ViewModel\ViewModel.csproj" />
+    <ProjectReference Include="..\WebApi\WebApi\WebApi.csproj" />
   </ItemGroup>
 
 </Project>

@@ -14,13 +14,16 @@ namespace Domain
             get { return _rotacao; }
             set
             {
-                if (Inclinacao == EnumInclinacao.ParaBaixo)
-                    throw new RoboException(RoboMensagem.SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo);
+                if (_rotacao != value)
+                {
+                    if (Inclinacao == EnumInclinacao.ParaBaixo)
+                        throw new RoboException(RoboMensagem.SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo);
 
-                if (!((int)_rotacao + 1 == (int)value || (int)_rotacao - 1 == (int)value))
-                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+                    if (!((int)_rotacao + 1 == (int)value || (int)_rotacao - 1 == (int)value))
+                        throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
 
-                _rotacao = value;
+                    _rotacao = value;
+                }
             }
         }
 
@@ -35,7 +38,7 @@ namespace Domain
             get { return _inclinacao; }
             set
             {
-                if (!((int)_inclinacao + 1 == (int)value || (int)_inclinacao - 1 == (int)value))
+                if (_inclinacao != value && !((int)_inclinacao + 1 == (int)value || (int)_inclinacao - 1 == (int)value))
                     throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
 
                 _inclinacao = value;

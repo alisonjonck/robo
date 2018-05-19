@@ -14,7 +14,7 @@ namespace Domain
             get { return _cotovelo; }
             set
             {
-                if (!((int)_cotovelo + 1 == (int)value || (int)_cotovelo - 1 == (int)value))
+                if (_cotovelo != value && !((int)_cotovelo + 1 == (int)value || (int)_cotovelo - 1 == (int)value))
                     throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
 
                 _cotovelo = value;
@@ -32,13 +32,17 @@ namespace Domain
             get { return _pulso; }
             set
             {
-                if (Cotovelo != EnumCotovelo.FortementeContraido)
-                    throw new RoboException(RoboMensagem.SoPoderaMovimentarPulsoComCotoveloFortementeContraido);
+                if (_pulso != value)
+                {
 
-                if (!((int)_pulso + 1 == (int)value || (int)_pulso - 1 == (int)value))
-                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+                    if (!((int)_pulso + 1 == (int)value || (int)_pulso - 1 == (int)value))
+                        throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
 
-                _pulso = value;
+                    if (Cotovelo != EnumCotovelo.FortementeContraido)
+                        throw new RoboException(RoboMensagem.SoPoderaMovimentarPulsoComCotoveloFortementeContraido);
+
+                    _pulso = value;
+                }
             }
         }
 

@@ -20,9 +20,18 @@ namespace WebApiTest.Controllers
         }
 
         [TestMethod]
-        public void TestRoboReturnedHasItsProperties()
+        public void TestRoboReturnedHasItsArms()
         {
-            Assert.Fail("UNDONE");
+            var controller = new RoboController();
+            Assert.IsNotNull(controller);
+
+            var robo = controller.Get();
+            Assert.IsNotNull(robo);
+
+            Assert.IsInstanceOfType(robo, typeof(RoboViewModel));
+
+            Assert.IsNotNull(robo.BracoDireito);
+            Assert.IsNotNull(robo.BracoEsquerdo);
         }
     }
 }

@@ -30,6 +30,9 @@ namespace WebApiTest
 
             Assert.IsNotNull(_robo.BracoDireito.Cotovelo);
             Assert.IsNotNull(_robo.BracoDireito.Pulso);
+
+            Assert.IsNotNull(_robo.BracoEsquerdo.Cotovelo);
+            Assert.IsNotNull(_robo.BracoEsquerdo.Pulso);
         }
 
         [TestMethod]
@@ -83,6 +86,12 @@ namespace WebApiTest
             Assert.AreEqual(EnumPulso.Rotacao90.Description(), "Rotação para 90º");
             Assert.AreEqual(EnumPulso.RotacaoMenos45.Description(), "Rotação para -45º");
             Assert.AreEqual(EnumPulso.RotacaoMenos90.Description(), "Rotação para -90º");
+        }
+
+        [TestMethod]
+        public void TestRoboHasHeadWithRotationAndInclination()
+        {
+
         }
     }
 }

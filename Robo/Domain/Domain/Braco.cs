@@ -5,7 +5,7 @@
         public Braco()
         {
             Cotovelo = EnumCotovelo.EmRepouso;
-            Pulso = "";
+            Pulso = EnumPulso.EmRepouso;
         }
 
         public EnumCotovelo Cotovelo { get; set; }
@@ -15,6 +15,11 @@
             get { return Cotovelo.Description(); }
         }
 
-        public string Pulso { get; set; }
+        public EnumPulso Pulso { get; set; }
+
+        public string PulsoDescricao
+        {
+            get { return Pulso.Description(); }
+        }
     }
 }

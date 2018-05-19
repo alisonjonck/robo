@@ -46,10 +46,10 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosElbowHasValidOptions()
         {
-            Assert.AreEqual((int)EnumCotovelo.EmRepouso, 0);
-            Assert.AreEqual((int)EnumCotovelo.LevementeContraido, 1);
-            Assert.AreEqual((int)EnumCotovelo.Contraido, 2);
-            Assert.AreEqual((int)EnumCotovelo.FortementeContraido, 3);
+            Assert.AreEqual((int)EnumCotovelo.EmRepouso, 1);
+            Assert.AreEqual((int)EnumCotovelo.LevementeContraido, 2);
+            Assert.AreEqual((int)EnumCotovelo.Contraido, 3);
+            Assert.AreEqual((int)EnumCotovelo.FortementeContraido, 4);
 
             Assert.AreEqual(EnumCotovelo.EmRepouso.Description(), "Em Repouso");
             Assert.AreEqual(EnumCotovelo.LevementeContraido.Description(), "Levemente Contraído");
@@ -57,12 +57,32 @@ namespace WebApiTest
             Assert.AreEqual(EnumCotovelo.FortementeContraido.Description(), "Fortemente Contraído");
         }
 
-        //[TestMethod]
-        //public void TestRobosWristStartsWithEmRepouso()
-        //{
-        //    Assert.IsNotNull(_robo.BracoDireito.Pulso);
-        //    Assert.AreEqual(EnumPulso.EmRepouso, _robo.BracoDireito.Pulso);
-        //    Assert.AreEqual("Em Repouso", _robo.BracoDireito.PulsoDescricao);
-        //}
+        [TestMethod]
+        public void TestRobosWristStartsWithEmRepouso()
+        {
+            Assert.IsNotNull(_robo.BracoDireito.Pulso);
+            Assert.AreEqual(EnumPulso.EmRepouso, _robo.BracoDireito.Pulso);
+            Assert.AreEqual("Em Repouso", _robo.BracoDireito.PulsoDescricao);
+        }
+
+        [TestMethod]
+        public void TestRobosWristHasValidOptions()
+        {
+            Assert.AreEqual((int)EnumPulso.EmRepouso, 3);
+            Assert.AreEqual((int)EnumPulso.Rotacao135, 6);
+            Assert.AreEqual((int)EnumPulso.Rotacao180, 7);
+            Assert.AreEqual((int)EnumPulso.Rotacao45, 4);
+            Assert.AreEqual((int)EnumPulso.Rotacao90, 5);
+            Assert.AreEqual((int)EnumPulso.RotacaoMenos45, 2);
+            Assert.AreEqual((int)EnumPulso.RotacaoMenos90, 1);
+
+            Assert.AreEqual(EnumPulso.EmRepouso.Description(), "Em Repouso");
+            Assert.AreEqual(EnumPulso.Rotacao135.Description(), "Rotação para 135º");
+            Assert.AreEqual(EnumPulso.Rotacao180.Description(), "Rotação para 180º");
+            Assert.AreEqual(EnumPulso.Rotacao45.Description(), "Rotação para 45º");
+            Assert.AreEqual(EnumPulso.Rotacao90.Description(), "Rotação para 90º");
+            Assert.AreEqual(EnumPulso.RotacaoMenos45.Description(), "Rotação para -45º");
+            Assert.AreEqual(EnumPulso.RotacaoMenos90.Description(), "Rotação para -90º");
+        }
     }
 }

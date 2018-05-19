@@ -8,15 +8,15 @@ namespace Domain
     public enum EnumCotovelo
     {
         [Description("Em Repouso")]
-        EmRepouso = 0,
+        EmRepouso = 1,
 
         [Description("Levemente Contraído")]
-        LevementeContraido = 1,
+        LevementeContraido = 2,
 
         [Description("Contraído")]
-        Contraido = 2,
+        Contraido = 3,
 
         [Description("Fortemente Contraído")]
-        FortementeContraido = 3
+        FortementeContraido = 4
     }
 }

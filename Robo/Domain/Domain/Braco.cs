@@ -4,18 +4,27 @@
     {
         public Braco()
         {
-            Cotovelo = EnumCotovelo.EmRepouso;
-            Pulso = EnumPulso.EmRepouso;
         }
 
-        public EnumCotovelo Cotovelo { get; set; }
+        public EnumCotovelo Cotovelo { get; set; } = EnumCotovelo.EmRepouso;
 
         public string CotoveloDescricao
         {
             get { return Cotovelo.Description(); }
         }
 
-        public EnumPulso Pulso { get; set; }
+        private EnumPulso _pulso = EnumPulso.EmRepouso;
+        public EnumPulso Pulso
+        {
+            get { return _pulso; }
+            set
+            {
+                if (Cotovelo != EnumCotovelo.FortementeContraido)
+                    throw new RoboException(RoboMensagem.SoPoderaMovimentarPulsoComCotoveloFortementeContraido);
+
+                _pulso = value;
+            }
+        }
 
         public string PulsoDescricao
         {

@@ -7,11 +7,18 @@ namespace WebApi.Controllers
     [Route("api/Robo")]
     public class RoboController : Controller
     {
-        // GET api/values
+        // GET api/robo
         [HttpGet]
-        public RoboViewModel Get()
+        public IActionResult Get()
         {
-            return new RoboViewModel();
+            return Ok(new RoboViewModel());
+        }
+
+        // PUT api/robo
+        [HttpPut]
+        public IActionResult Put([FromBody]RoboViewModel robo)
+        {
+            return Ok(new RoboViewModel());
         }
 
     }

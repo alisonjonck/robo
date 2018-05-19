@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Domain {
+namespace Domain.Resources {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace Domain {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class RoboMensagem {
+    public class RoboMensagem {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace Domain {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Domain.RoboMensagem", typeof(RoboMensagem).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Domain.Resources.RoboMensagem", typeof(RoboMensagem).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Domain {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,7 +64,7 @@ namespace Domain {
         ///   Looks up a localized string similar to Ao realizar a progressão de estados, é necessário que sempre siga a ordem
         ///crescente ou decrescente,.
         /// </summary>
-        internal static string NecessarioProgressaoCrescenteOuDecrescente {
+        public static string NecessarioProgressaoCrescenteOuDecrescente {
             get {
                 return ResourceManager.GetString("NecessarioProgressaoCrescenteOuDecrescente", resourceCulture);
             }
@@ -73,7 +73,7 @@ namespace Domain {
         /// <summary>
         ///   Looks up a localized string similar to Só poderá movimentar o Pulso caso o Cotovelo esteja Fortemente Contraído.
         /// </summary>
-        internal static string SoPoderaMovimentarPulsoComCotoveloFortementeContraido {
+        public static string SoPoderaMovimentarPulsoComCotoveloFortementeContraido {
             get {
                 return ResourceManager.GetString("SoPoderaMovimentarPulsoComCotoveloFortementeContraido", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace Domain {
         /// <summary>
         ///   Looks up a localized string similar to Só poderá Rotacionar a Cabeça caso sua Inclinação da Cabeça não esteja em estado Para Baixo.
         /// </summary>
-        internal static string SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo {
+        public static string SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo {
             get {
                 return ResourceManager.GetString("SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo", resourceCulture);
             }

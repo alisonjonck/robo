@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="RoboMensagem.Designer.cs">
+    <Compile Update="Resources\RoboMensagem.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>RoboMensagem.resx</DependentUpon>
@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="RoboMensagem.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+    <EmbeddedResource Update="Resources\RoboMensagem.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RoboMensagem.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

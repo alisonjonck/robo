@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Service\Service\Service.csproj" />
     <ProjectReference Include="..\..\ViewModel\ViewModel\ViewModel.csproj" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace WebApiTest
 {
     [TestClass]
-    public class RoboRestricoesTest
+    public partial class RoboRestricoesTest
     {
         private Robo _robo;
 
@@ -37,13 +37,16 @@ namespace WebApiTest
         {
             Assert.AreEqual(EnumCotovelo.EmRepouso, _robo.BracoDireito.Cotovelo);
 
-            // Cotovelo está Fortemente Contraído
+            // Cotovelo deve ficar Fortemente Contraído
+            _robo.BracoDireito.Cotovelo = EnumCotovelo.LevementeContraido;
+            _robo.BracoDireito.Cotovelo = EnumCotovelo.Contraido;
             _robo.BracoDireito.Cotovelo = EnumCotovelo.FortementeContraido;
             Assert.AreEqual(EnumCotovelo.FortementeContraido, _robo.BracoDireito.Cotovelo);
 
-            _robo.BracoDireito.Pulso = EnumPulso.Rotacao135;
+            // vai para o '2' devido restrição de progressão
+            _robo.BracoDireito.Pulso = EnumPulso.RotacaoMenos45;
 
-            Assert.AreEqual(EnumPulso.Rotacao135, _robo.BracoDireito.Pulso);
+            Assert.AreEqual(EnumPulso.RotacaoMenos45, _robo.BracoDireito.Pulso);
         }
 
         /// <summary>

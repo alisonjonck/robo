@@ -6,7 +6,18 @@
         {
         }
 
-        public EnumCotovelo Cotovelo { get; set; } = EnumCotovelo.EmRepouso;
+        private EnumCotovelo _cotovelo = EnumCotovelo.EmRepouso;
+        public EnumCotovelo Cotovelo
+        {
+            get { return _cotovelo; }
+            set
+            {
+                if (!((int)_cotovelo + 1 == (int)value || (int)_cotovelo - 1 == (int)value))
+                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+
+                _cotovelo = value;
+            }
+        }
 
         public string CotoveloDescricao
         {
@@ -21,6 +32,9 @@
             {
                 if (Cotovelo != EnumCotovelo.FortementeContraido)
                     throw new RoboException(RoboMensagem.SoPoderaMovimentarPulsoComCotoveloFortementeContraido);
+
+                if (!((int)_pulso + 1 == (int)value || (int)_pulso - 1 == (int)value))
+                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
 
                 _pulso = value;
             }

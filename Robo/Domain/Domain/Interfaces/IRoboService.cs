@@ -15,6 +15,6 @@
         /// Atualiza estados de R.O.B.O.
         /// </summary>
         /// <returns></returns>
-        Robo UpdateRobo(Robo robo);
+        Robo UpdateRobo(IRoboViewModel robo);
     }
 }

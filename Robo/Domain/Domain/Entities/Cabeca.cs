@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    public class Cabeca
+    public class Cabeca : ICabecaViewModel
     {
         public Cabeca()
         {
@@ -44,7 +44,6 @@ namespace Domain
                 _inclinacao = value;
             }
         }
-
 
         public string InclinacaoDescricao
         {

@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    public class Braco
+    public class Braco : IBracoViewModel
     {
         public Braco()
         {

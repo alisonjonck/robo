@@ -12,15 +12,25 @@ namespace ViewModel
         /// </summary>
         public RoboViewModel()
         {
-            Cabeca = new Cabeca();
-            BracoDireito = new Braco();
-            BracoEsquerdo = new Braco();
+            Cabeca = new CabecaViewModel();
+            BracoDireito = new BracoViewModel();
+            BracoEsquerdo = new BracoViewModel();
         }
 
-        public Braco BracoDireito { get; set; }
+        /// <summary>
+        /// R.o.b.o.
+        /// </summary>
+        public RoboViewModel(Robo robo)
+        {
+            Cabeca = robo.Cabeca;
+            BracoDireito = robo.BracoDireito;
+            BracoEsquerdo = robo.BracoEsquerdo;
+        }
 
-        public Braco BracoEsquerdo { get; set; }
+        public IBracoViewModel BracoDireito { get; set; }
 
-        public Cabeca Cabeca { get; set; }
+        public IBracoViewModel BracoEsquerdo { get; set; }
+
+        public ICabecaViewModel Cabeca { get; set; }
     }
 }

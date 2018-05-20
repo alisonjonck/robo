@@ -1,16 +1,22 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Service;
 using ViewModel;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// R.O.B.O. API
+    /// </summary>
     [Produces("application/json")]
     [Route("api/robo")]
     public class RoboController : Controller
     {
         private readonly IRoboService _roboService;
 
+        /// <summary>
+        /// R.O.B.O. API
+        /// </summary>
+        /// <param name="roboService"></param>
         public RoboController(IRoboService roboService)
         {
             _roboService = roboService;
@@ -38,17 +44,12 @@ namespace WebApi.Controllers
         /// <summary>
         /// PUT api/robo
         /// </summary>
-        /// <param name="robo">RoboViewModel</param>
+        /// <param name="roboVM">RoboViewModel</param>
         /// <returns>RoboViewModel</returns>
         [HttpPut]
         public IActionResult Put([FromBody]RoboViewModel roboVM)
         {
-            Robo = _roboService.GetRobo();
-            Robo.BracoDireito = roboVM.BracoDireito;
-            Robo.BracoEsquerdo = roboVM.BracoEsquerdo;
-            Robo.Cabeca = roboVM.Cabeca;
-
-            var roboAtualizado = _roboService.UpdateRobo(Robo);
+            var roboAtualizado = _roboService.UpdateRobo(roboVM);
 
             var roboAtualizadoVM = new RoboViewModel();
             roboAtualizadoVM.BracoDireito = roboAtualizado.BracoDireito;

@@ -3,7 +3,7 @@
 namespace Domain
 {
     /// <summary>
-    /// Enum com as opções válidas de cotovelo
+    /// Enum com as opções válidas de cotovelo [EmRepouso, LevementeContraido, Contraido, FortementeContraido]
     /// </summary>
     public enum EnumCotovelo
     {

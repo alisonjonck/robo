@@ -29,6 +29,7 @@ namespace WebApi
                 c.SwaggerDoc("v1", new Info { Title = "Web API", Version = "v1" });
 
                 c.IncludeXmlComments($"{System.AppDomain.CurrentDomain.BaseDirectory}WebApi.xml");
+                c.IncludeXmlComments($"{System.AppDomain.CurrentDomain.BaseDirectory}ViewModel.xml");
 
                 c.DescribeAllEnumsAsStrings();
             });

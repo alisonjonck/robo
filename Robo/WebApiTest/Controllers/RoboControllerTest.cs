@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Service;
 using ViewModel;
 using WebApi.Controllers;
 
@@ -14,7 +15,7 @@ namespace WebApiTest.Controllers
         [TestInitialize]
         public void SetUp()
         {
-            _controller = new RoboController();
+            _controller = new RoboController(new RoboService());
         }
 
         [TestMethod]
@@ -92,7 +93,7 @@ namespace WebApiTest.Controllers
 
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 
-            IRoboViewModel roboAtualizado = (result as OkObjectResult)?.Value as IRoboViewModel;
+            IRoboViewModel roboAtualizado = (_controller.Get() as OkObjectResult)?.Value as IRoboViewModel;
 
             Assert.AreEqual(EnumCotovelo.LevementeContraido, roboAtualizado.BracoDireito.Cotovelo);
         }

@@ -6,15 +6,17 @@ using ViewModel;
 namespace WebApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Robo")]
+    [Route("api/robo")]
     public class RoboController : Controller
     {
         private readonly IRoboService _roboService;
 
-        public RoboController()
+        public RoboController(IRoboService roboService)
         {
-            _roboService = new RoboService();
+            _roboService = roboService;
         }
+
+        private Robo Robo { get; set; }
 
         /// <summary>
         /// GET api/robo
@@ -23,12 +25,12 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var robo = _roboService.GetRobo();
+            Robo = _roboService.GetRobo();
 
             var roboVM = new RoboViewModel();
-            roboVM.BracoDireito = robo.BracoDireito;
-            roboVM.BracoEsquerdo = robo.BracoEsquerdo;
-            roboVM.Cabeca = robo.Cabeca;
+            roboVM.BracoDireito = Robo.BracoDireito;
+            roboVM.BracoEsquerdo = Robo.BracoEsquerdo;
+            roboVM.Cabeca = Robo.Cabeca;
 
             return Ok(roboVM);
         }
@@ -41,12 +43,12 @@ namespace WebApi.Controllers
         [HttpPut]
         public IActionResult Put([FromBody]RoboViewModel roboVM)
         {
-            Robo robo = new Robo();
-            robo.BracoDireito = roboVM.BracoDireito;
-            robo.BracoEsquerdo = roboVM.BracoEsquerdo;
-            robo.Cabeca = roboVM.Cabeca;
+            Robo = _roboService.GetRobo();
+            Robo.BracoDireito = roboVM.BracoDireito;
+            Robo.BracoEsquerdo = roboVM.BracoEsquerdo;
+            Robo.Cabeca = roboVM.Cabeca;
 
-            var roboAtualizado = _roboService.UpdateRobo(robo);
+            var roboAtualizado = _roboService.UpdateRobo(Robo);
 
             var roboAtualizadoVM = new RoboViewModel();
             roboAtualizadoVM.BracoDireito = roboAtualizado.BracoDireito;

@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using ViewModel;
 
 namespace WebApi.Controllers
@@ -31,14 +32,21 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            Robo = _roboService.GetRobo();
+            try
+            {
+                Robo = _roboService.GetRobo();
 
-            var roboVM = new RoboViewModel();
-            roboVM.BracoDireito = Robo.BracoDireito;
-            roboVM.BracoEsquerdo = Robo.BracoEsquerdo;
-            roboVM.Cabeca = Robo.Cabeca;
+                var roboVM = new RoboViewModel();
+                roboVM.BracoDireito = Robo.BracoDireito;
+                roboVM.BracoEsquerdo = Robo.BracoEsquerdo;
+                roboVM.Cabeca = Robo.Cabeca;
 
-            return Ok(roboVM);
+                return Ok(roboVM);
+            }
+            catch (Exception exception)
+            {
+                return Ok(exception);
+            }
         }
 
         /// <summary>
@@ -49,14 +57,25 @@ namespace WebApi.Controllers
         [HttpPut]
         public IActionResult Put([FromBody]RoboViewModel roboVM)
         {
-            var roboAtualizado = _roboService.UpdateRobo(roboVM);
+            try
+            {
+                var roboAtualizado = _roboService.UpdateRobo(roboVM);
 
-            var roboAtualizadoVM = new RoboViewModel();
-            roboAtualizadoVM.BracoDireito = roboAtualizado.BracoDireito;
-            roboAtualizadoVM.BracoEsquerdo = roboAtualizado.BracoEsquerdo;
-            roboAtualizadoVM.Cabeca = roboAtualizado.Cabeca;
+                var roboAtualizadoVM = new RoboViewModel();
+                roboAtualizadoVM.BracoDireito = roboAtualizado.BracoDireito;
+                roboAtualizadoVM.BracoEsquerdo = roboAtualizado.BracoEsquerdo;
+                roboAtualizadoVM.Cabeca = roboAtualizado.Cabeca;
 
-            return Ok(roboAtualizadoVM);
+                return Ok(roboAtualizadoVM);
+            }
+            catch (RoboException exception)
+            {
+                return Ok(new HandledException(exception.Mensagem));
+            }
+            catch (Exception exception)
+            {
+                return Ok(exception);
+            }
         }
 
     }

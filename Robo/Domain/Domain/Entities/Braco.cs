@@ -15,7 +15,7 @@ namespace Domain
             set
             {
                 if (_cotovelo != value && !((int)_cotovelo + 1 == (int)value || (int)_cotovelo - 1 == (int)value))
-                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+                    throw new RoboException(string.Format(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente, CotoveloDescricao, value.Description()));
 
                 _cotovelo = value;
             }
@@ -36,7 +36,7 @@ namespace Domain
                 {
 
                     if (!((int)_pulso + 1 == (int)value || (int)_pulso - 1 == (int)value))
-                        throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+                        throw new RoboException(string.Format(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente, PulsoDescricao, value.Description()));
 
                     if (Cotovelo != EnumCotovelo.FortementeContraido)
                         throw new RoboException(RoboMensagem.SoPoderaMovimentarPulsoComCotoveloFortementeContraido);

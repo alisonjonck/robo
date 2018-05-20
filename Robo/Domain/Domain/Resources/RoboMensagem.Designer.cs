@@ -61,8 +61,7 @@ namespace Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ao realizar a progressão de estados, é necessário que sempre siga a ordem
-        ///crescente ou decrescente,.
+        ///   Looks up a localized string similar to &quot;{0}&quot; não pode mudar para &quot;{1}&quot;. É necessário que sempre siga a ordem crescente ou decrescente..
         /// </summary>
         public static string NecessarioProgressaoCrescenteOuDecrescente {
             get {

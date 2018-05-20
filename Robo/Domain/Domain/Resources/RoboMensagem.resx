@@ -118,8 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NecessarioProgressaoCrescenteOuDecrescente" xml:space="preserve">
-    <value>Ao realizar a progressão de estados, é necessário que sempre siga a ordem
-crescente ou decrescente,</value>
+    <value>"{0}" não pode mudar para "{1}". É necessário que sempre siga a ordem crescente ou decrescente.</value>
   </data>
   <data name="SoPoderaMovimentarPulsoComCotoveloFortementeContraido" xml:space="preserve">
     <value>Só poderá movimentar o Pulso caso o Cotovelo esteja Fortemente Contraído</value>

@@ -20,7 +20,7 @@ namespace Domain
                         throw new RoboException(RoboMensagem.SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo);
 
                     if (!((int)_rotacao + 1 == (int)value || (int)_rotacao - 1 == (int)value))
-                        throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+                        throw new RoboException(string.Format(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente, RotacaoDescricao, value.Description()));
 
                     _rotacao = value;
                 }
@@ -39,7 +39,7 @@ namespace Domain
             set
             {
                 if (_inclinacao != value && !((int)_inclinacao + 1 == (int)value || (int)_inclinacao - 1 == (int)value))
-                    throw new RoboException(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente);
+                    throw new RoboException(string.Format(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente, InclinacaoDescricao, value.Description()));
 
                 _inclinacao = value;
             }

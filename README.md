@@ -1,10 +1,9 @@
 # R.O.B.O.
 
-.net core API example
+Exemplo de REST API em .net core
 
-> Criei a estrutura de pastas de acordo com o que entendo sobre DDD
-> Ainda adicionaria CrossCutting com conhecimento sobre as inversões de controle 
-> e Infrasestrutura de repositório e segurança
+> Criei a estrutura de pastas de acordo com o que entendo sobre DDD.
+> Eu adicionaria ainda CrossCutting e Infrasestrutura.
 
 ### Swagger
 

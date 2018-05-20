@@ -16,7 +16,7 @@ namespace Service
             return _robo;
         }
 
-        public Robo UpdateRobo(Robo robo)
+        public Robo UpdateRobo(IRoboViewModel robo)
         {
             _robo.BracoDireito.Cotovelo = robo.BracoDireito.Cotovelo;
             _robo.BracoDireito.Pulso = robo.BracoDireito.Pulso;

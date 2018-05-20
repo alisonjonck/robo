@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Service;
+using ViewModel;
 
 namespace WebApiTest.Services
 {
@@ -27,7 +28,7 @@ namespace WebApiTest.Services
             Assert.IsNotNull(roboService);
             Assert.IsInstanceOfType(roboService, typeof(IRoboService));
 
-            var roboAtualizado = roboService.GetRobo();
+            IRoboViewModel roboAtualizado = new RoboViewModel(roboService.GetRobo());
             // Cabeça Inclinação
             Assert.AreEqual(EnumInclinacao.EmRepouso, roboAtualizado.Cabeca.Inclinacao);
             roboAtualizado.Cabeca.Inclinacao = EnumInclinacao.ParaCima;

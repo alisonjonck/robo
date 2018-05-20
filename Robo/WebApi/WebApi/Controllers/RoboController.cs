@@ -1,20 +1,28 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Service;
 using ViewModel;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// R.O.B.O. API
+    /// </summary>
     [Produces("application/json")]
-    [Route("api/Robo")]
+    [Route("api/robo")]
     public class RoboController : Controller
     {
         private readonly IRoboService _roboService;
 
-        public RoboController()
+        /// <summary>
+        /// R.O.B.O. API
+        /// </summary>
+        /// <param name="roboService"></param>
+        public RoboController(IRoboService roboService)
         {
-            _roboService = new RoboService();
+            _roboService = roboService;
         }
+
+        private Robo Robo { get; set; }
 
         /// <summary>
         /// GET api/robo
@@ -23,12 +31,12 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var robo = _roboService.GetRobo();
+            Robo = _roboService.GetRobo();
 
             var roboVM = new RoboViewModel();
-            roboVM.BracoDireito = robo.BracoDireito;
-            roboVM.BracoEsquerdo = robo.BracoEsquerdo;
-            roboVM.Cabeca = robo.Cabeca;
+            roboVM.BracoDireito = Robo.BracoDireito;
+            roboVM.BracoEsquerdo = Robo.BracoEsquerdo;
+            roboVM.Cabeca = Robo.Cabeca;
 
             return Ok(roboVM);
         }
@@ -36,17 +44,12 @@ namespace WebApi.Controllers
         /// <summary>
         /// PUT api/robo
         /// </summary>
-        /// <param name="robo">RoboViewModel</param>
+        /// <param name="roboVM">RoboViewModel</param>
         /// <returns>RoboViewModel</returns>
         [HttpPut]
         public IActionResult Put([FromBody]RoboViewModel roboVM)
         {
-            Robo robo = new Robo();
-            robo.BracoDireito = roboVM.BracoDireito;
-            robo.BracoEsquerdo = roboVM.BracoEsquerdo;
-            robo.Cabeca = roboVM.Cabeca;
-
-            var roboAtualizado = _roboService.UpdateRobo(robo);
+            var roboAtualizado = _roboService.UpdateRobo(roboVM);
 
             var roboAtualizadoVM = new RoboViewModel();
             roboAtualizadoVM.BracoDireito = roboAtualizado.BracoDireito;

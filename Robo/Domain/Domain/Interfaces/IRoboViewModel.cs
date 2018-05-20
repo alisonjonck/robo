@@ -2,10 +2,10 @@
 {
     public interface IRoboViewModel
     {
-        Cabeca Cabeca { get; set; }
+        ICabecaViewModel Cabeca { get; set; }
 
-        Braco BracoDireito { get; set; }
+        IBracoViewModel BracoDireito { get; set; }
 
-        Braco BracoEsquerdo { get; set; }
+        IBracoViewModel BracoEsquerdo { get; set; }
     }
 }

@@ -3,7 +3,7 @@
 Exemplo de REST API em .net core
 
 > Criei a estrutura de pastas de acordo com o que entendo sobre DDD.
-> Eu adicionaria ainda CrossCutting e Infrasestrutura.
+> Eu adicionaria ainda CrossCutting e Infraestrutura.
 
 ### Swagger
 

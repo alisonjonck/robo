@@ -2,18 +2,28 @@
 
 Exemplo de REST API em .net core
 
-> Criei a estrutura de pastas de acordo com o que entendo sobre DDD.
-> Eu adicionaria ainda CrossCutting e Infraestrutura.
+###Clone o projeto:
 
-### Swagger
+```git clone https://github.com/alisonjonck/robo.git```
 
-```sh
-/swagger
-```
+###Execute os testes:
 
-### API
+```cd robo/Robo
+dotnet test```
+
+###Faça build e rode a aplicação:
+
+```dotnet build
+dotnet WebApi/WebApi/bin/Debug/netcoreapp2.0/WebApi.dll```
+
+###Acesse a interface do Swagger:
+
+```http://localhost:5000/swagger/```
+
+### R.O.B.O.
 
 | Method | Route |
 | ------ | ------ |
-| GET | /api/robo |
-| PUT | /api/robo |
+| GET | http://localhost:5000/api/robo |
+| PUT | http://localhost:5000/api/robo |
+

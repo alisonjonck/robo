@@ -60,7 +60,7 @@ PUT | http://localhost:5000/api/robo
 ### Inclinação
 * Para Cima
 * Em Repouso
-Para Baixo
+* Para Baixo
 
 # Estados Braço Direito/Esquerdo R.O.B.O.
 

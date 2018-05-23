@@ -38,7 +38,7 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosElbowStartsWithEmRepouso()
         {
-            // O estado inicial dos movimentos é Em Repouso.
+            // O estado inicial dos movimentos ï¿½ Em Repouso.
 
             Assert.IsNotNull(_robo.BracoDireito.Cotovelo);
             Assert.IsNotNull(_robo.BracoEsquerdo.Cotovelo);
@@ -57,15 +57,15 @@ namespace WebApiTest
             Assert.AreEqual((int)EnumCotovelo.FortementeContraido, 4);
 
             Assert.AreEqual(EnumCotovelo.EmRepouso.Description(), "Em Repouso");
-            Assert.AreEqual(EnumCotovelo.LevementeContraido.Description(), "Levemente Contraído");
-            Assert.AreEqual(EnumCotovelo.Contraido.Description(), "Contraído");
-            Assert.AreEqual(EnumCotovelo.FortementeContraido.Description(), "Fortemente Contraído");
+            Assert.AreEqual(EnumCotovelo.LevementeContraido.Description(), "Levemente ContraÃ­do");
+            Assert.AreEqual(EnumCotovelo.Contraido.Description(), "ContraÃ­do");
+            Assert.AreEqual(EnumCotovelo.FortementeContraido.Description(), "Fortemente ContraÃ­do");
         }
 
         [TestMethod]
         public void TestRobosWristStartsWithEmRepouso()
         {
-            // O estado inicial dos movimentos é Em Repouso.
+            // O estado inicial dos movimentos ï¿½ Em Repouso.
 
             Assert.IsNotNull(_robo.BracoDireito.Pulso);
             Assert.AreEqual(EnumPulso.EmRepouso, _robo.BracoDireito.Pulso);
@@ -84,12 +84,12 @@ namespace WebApiTest
             Assert.AreEqual((int)EnumPulso.RotacaoMenos90, 1);
 
             Assert.AreEqual(EnumPulso.EmRepouso.Description(), "Em Repouso");
-            Assert.AreEqual(EnumPulso.Rotacao135.Description(), "Rotação para 135º");
-            Assert.AreEqual(EnumPulso.Rotacao180.Description(), "Rotação para 180º");
-            Assert.AreEqual(EnumPulso.Rotacao45.Description(), "Rotação para 45º");
-            Assert.AreEqual(EnumPulso.Rotacao90.Description(), "Rotação para 90º");
-            Assert.AreEqual(EnumPulso.RotacaoMenos45.Description(), "Rotação para -45º");
-            Assert.AreEqual(EnumPulso.RotacaoMenos90.Description(), "Rotação para -90º");
+            Assert.AreEqual(EnumPulso.Rotacao135.Description(), "RotaÃ§Ã£o para 135Âº");
+            Assert.AreEqual(EnumPulso.Rotacao180.Description(), "RotaÃ§Ã£o para 180Âº");
+            Assert.AreEqual(EnumPulso.Rotacao45.Description(), "RotaÃ§Ã£o para 45Âº");
+            Assert.AreEqual(EnumPulso.Rotacao90.Description(), "RotaÃ§Ã£o para 90Âº");
+            Assert.AreEqual(EnumPulso.RotacaoMenos45.Description(), "RotaÃ§Ã£o para -45Âº");
+            Assert.AreEqual(EnumPulso.RotacaoMenos90.Description(), "RotaÃ§Ã£o para -90Âº");
         }
 
         [TestMethod]
@@ -106,7 +106,7 @@ namespace WebApiTest
         [TestMethod]
         public void TestRobosRotationStartsWithEmRepouso()
         {
-            // O estado inicial dos movimentos é Em Repouso.
+            // O estado inicial dos movimentos ï¿½ Em Repouso.
 
             Assert.IsNotNull(_robo.Cabeca.Rotacao);
             Assert.AreEqual(EnumRotacao.EmRepouso, _robo.Cabeca.Rotacao);
@@ -122,17 +122,17 @@ namespace WebApiTest
             Assert.AreEqual((int)EnumRotacao.Rotacao45, 4);
             Assert.AreEqual((int)EnumRotacao.Rotacao90, 5);
 
-            Assert.AreEqual(EnumRotacao.RotacaoMenos90.Description(), "Rotação -90º");
-            Assert.AreEqual(EnumRotacao.RotacaoMenos45.Description(), "Rotação -45º");
+            Assert.AreEqual(EnumRotacao.RotacaoMenos90.Description(), "RotaÃ§Ã£o -90Âº");
+            Assert.AreEqual(EnumRotacao.RotacaoMenos45.Description(), "RotaÃ§Ã£o -45Âº");
             Assert.AreEqual(EnumRotacao.EmRepouso.Description(), "Em Repouso");
-            Assert.AreEqual(EnumRotacao.Rotacao45.Description(), "Rotação 45º");
-            Assert.AreEqual(EnumRotacao.Rotacao90.Description(), "Rotação 90º");
+            Assert.AreEqual(EnumRotacao.Rotacao45.Description(), "RotaÃ§Ã£o 45Âº");
+            Assert.AreEqual(EnumRotacao.Rotacao90.Description(), "RotaÃ§Ã£o 90Âº");
         }
 
         [TestMethod]
         public void TestRobosInclinationStartsWithEmRepouso()
         {
-            // O estado inicial dos movimentos é Em Repouso.
+            // O estado inicial dos movimentos ï¿½ Em Repouso.
 
             Assert.IsNotNull(_robo.Cabeca.Inclinacao);
             Assert.AreEqual(EnumInclinacao.EmRepouso, _robo.Cabeca.Inclinacao);

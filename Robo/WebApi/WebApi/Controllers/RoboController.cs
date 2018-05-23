@@ -45,7 +45,7 @@ namespace WebApi.Controllers
             }
             catch (Exception exception)
             {
-                return Ok(exception);
+                return Ok(new HandledException(exception.Message));
             }
         }
 
@@ -74,9 +74,8 @@ namespace WebApi.Controllers
             }
             catch (Exception exception)
             {
-                return Ok(exception);
+                return Ok(new HandledException(exception.Message));
             }
         }
-
     }
 }

@@ -81,6 +81,61 @@ namespace WebApiTest.Controllers
         }
 
         [TestMethod]
+        public void TestRoboControllerGetReturnsHandledException()
+        {
+            _controller = new RoboController(null);
+
+            var result = _controller.Get();
+
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            var exception = (result as OkObjectResult)?.Value as HandledException;
+
+            Assert.IsInstanceOfType(exception, typeof(HandledException));
+
+            Assert.IsNotNull(exception.Mensagem);
+        }
+
+        [TestMethod]
+        public void TestRoboControllerPutReturnsHandledException()
+        {
+            _controller = new RoboController(null);
+
+            var result = _controller.Put(new RoboViewModel());
+
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            var exception = (result as OkObjectResult)?.Value as HandledException;
+
+            Assert.IsInstanceOfType(exception, typeof(HandledException));
+
+            Assert.IsNotNull(exception.Mensagem);
+        }
+
+        [TestMethod]
+        public void TestRoboControllerPutReturnsHandledRoboException()
+        {
+            var result = _controller.Put(new RoboViewModel()
+            {
+                BracoDireito = new BracoViewModel()
+                {
+                    // Estado inválido para Cotovelo que estará em repouso
+                    Cotovelo = EnumCotovelo.FortementeContraido
+                }
+            });
+
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+
+            var exception = (result as OkObjectResult)?.Value as HandledException;
+
+            Assert.IsInstanceOfType(exception, typeof(HandledException));
+
+            Assert.IsNotNull(exception.Mensagem);
+            Assert.AreEqual("\"Em Repouso\" não pode mudar para \"Fortemente Contraído\". É necessário que sempre siga a ordem crescente ou decrescente.",
+                exception.Mensagem);
+        }
+
+        [TestMethod]
         public void TestRoboControllerPutUpdatesRobo()
         {
             Assert.IsNotNull(_controller);

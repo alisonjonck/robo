@@ -19,7 +19,7 @@ namespace Domain
                     if (Inclinacao == EnumInclinacao.ParaBaixo)
                         throw new RoboException(RoboMensagem.SoPoderaRotacionarCabecaComInclinacaoDiferenteDeParaBaixo);
 
-                    if (!((int)_rotacao + 1 == (int)value || (int)_rotacao - 1 == (int)value))
+                    if (!((int)_rotacao).IsProgressiveFor((int)value))
                         throw new RoboException(string.Format(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente, RotacaoDescricao, value.Description()));
 
                     _rotacao = value;
@@ -38,7 +38,7 @@ namespace Domain
             get { return _inclinacao; }
             set
             {
-                if (_inclinacao != value && !((int)_inclinacao + 1 == (int)value || (int)_inclinacao - 1 == (int)value))
+                if (_inclinacao != value && !((int)_inclinacao).IsProgressiveFor((int)value))
                     throw new RoboException(string.Format(RoboMensagem.NecessarioProgressaoCrescenteOuDecrescente, InclinacaoDescricao, value.Description()));
 
                 _inclinacao = value;

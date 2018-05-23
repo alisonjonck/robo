@@ -1,5 +1,7 @@
 # R.O.B.O.
 
+[![Build Status](https://travis-ci.org/alisonjonck/robo.svg?branch=dev)](https://travis-ci.org/alisonjonck/robo)
+
 ### Clone o projeto
 ```
 git clone https://github.com/alisonjonck/robo.git

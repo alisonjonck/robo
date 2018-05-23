@@ -7,5 +7,5 @@ install:
  - dotnet restore Robo/Robo.sln
 
 script:
- - dotnet build
+ - dotnet build Robo/Robo.sln
  - dotnet test Robo/WebApiTest/WebApiTest.csproj

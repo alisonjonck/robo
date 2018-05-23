@@ -1,0 +1,11 @@
+language: csharp
+solution: Robo/Robo.sln
+mono: none
+dotnet: 2.1.4
+
+install:
+ - dotnet restore
+
+script:
+ - dotnet build
+ - dotnet test Robo/WebApiTest/WebApiTest.csproj

@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/alisonjonck/robo.svg?branch=dev)](https://travis-ci.org/alisonjonck/robo)
 
+## Download última versão .NET Core SDK
+
+* [.NET Core 2.0 SDK](release-notes/download-archives/2.0.3.md)
+
 ### Clone o projeto
 ```
 git clone https://github.com/alisonjonck/robo.git

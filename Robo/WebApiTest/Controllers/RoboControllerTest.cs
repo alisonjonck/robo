@@ -1,6 +1,8 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Service;
 using ViewModel;
 using WebApi.Controllers;
@@ -11,11 +13,14 @@ namespace WebApiTest.Controllers
     public class RoboControllerTest
     {
         private RoboController _controller;
+        private Mock<ILoggerFactory> _logger;
 
         [TestInitialize]
         public void SetUp()
         {
-            _controller = new RoboController(new RoboService());
+            _logger = new Mock<ILoggerFactory>();
+
+            _controller = new RoboController(new RoboService(), _logger.Object);
         }
 
         [TestMethod]
@@ -83,7 +88,12 @@ namespace WebApiTest.Controllers
         [TestMethod]
         public void TestRoboControllerGetReturnsHandledException()
         {
-            _controller = new RoboController(null);
+            var mockedLogger = new Mock<ILogger>();
+
+            _logger.Setup(l => l.CreateLogger("RoboApi.Controllers.RoboController"))
+                .Returns(mockedLogger.Object);
+
+            _controller = new RoboController(null, _logger.Object);
 
             var result = _controller.Get();
 
@@ -99,7 +109,7 @@ namespace WebApiTest.Controllers
         [TestMethod]
         public void TestRoboControllerPutReturnsHandledException()
         {
-            _controller = new RoboController(null);
+            _controller = new RoboController(null, _logger.Object);
 
             var result = _controller.Put(new RoboViewModel());
 

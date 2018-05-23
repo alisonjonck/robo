@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using ViewModel;
 
@@ -13,14 +14,16 @@ namespace WebApi.Controllers
     public class RoboController : Controller
     {
         private readonly IRoboService _roboService;
-
+        private readonly ILogger _logger;
         /// <summary>
         /// R.O.B.O. API
         /// </summary>
         /// <param name="roboService"></param>
-        public RoboController(IRoboService roboService)
+        /// <param name="logger"></param>
+        public RoboController(IRoboService roboService, ILoggerFactory logger)
         {
             _roboService = roboService;
+            _logger = logger.CreateLogger("RoboApi.Controllers.RoboController");
         }
 
         private Robo Robo { get; set; }
@@ -45,6 +48,11 @@ namespace WebApi.Controllers
             }
             catch (Exception exception)
             {
+                if (_logger.IsEnabled(LogLevel.Error))
+                {
+                    _logger.LogError(exception, "HttpGet api/robo");
+                }
+
                 return Ok(new HandledException(exception.Message));
             }
         }

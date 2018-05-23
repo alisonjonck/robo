@@ -1,6 +1,6 @@
 # R.O.B.O.
 
-[![Build Status](https://travis-ci.org/alisonjonck/robo.svg?branch=dev)](https://travis-ci.org/alisonjonck/robo)
+[![Build Status](https://travis-ci.org/alisonjonck/robo.svg?branch=dev)](https://travis-ci.org/alisonjonck/robo) [![codecov](https://codecov.io/gh/alisonjonck/robo/branch/dev/graph/badge.svg)](https://codecov.io/gh/alisonjonck/robo)
 
 ## Download última versão .NET Core SDK
 

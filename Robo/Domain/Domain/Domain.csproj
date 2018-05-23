@@ -4,6 +4,16 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Codecov" Version="1.0.3" />
+    <PackageReference Include="OpenCover" Version="4.6.519" />
+  </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Resources\RoboMensagem.Designer.cs">
       <DesignTime>True</DesignTime>

@@ -4,7 +4,7 @@
 
 ## Download última versão .NET Core SDK
 
-* [.NET Core 2.0 SDK](release-notes/download-archives/2.0.3.md)
+* [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/windows)
 
 ### Clone o projeto
 ```
